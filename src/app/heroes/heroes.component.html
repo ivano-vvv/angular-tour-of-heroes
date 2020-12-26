@@ -1,0 +1,19 @@
+<h2>My Heroes</h2>
+
+<div *ngIf="selectedHero">
+  <h3>{{ selectedHero.name | uppercase }} Details</h3>
+  <div>
+    <p><span>id: </span>{{ selectedHero.id }}</p>
+    <p><span>name: </span>{{ selectedHero.name }}</p>
+  </div>
+</div>
+
+<ul class="heroes">
+  <li
+    *ngFor="let hero of heroes"
+    [class.selected]="selectedHero && hero.id === selectedHero.id"
+    (click)="onClick(hero)"
+  >
+    <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+  </li>
+</ul>
